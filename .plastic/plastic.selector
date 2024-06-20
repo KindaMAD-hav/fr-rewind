@@ -1,0 +1,4 @@
+repository "fr-rewind@HADDIIIII@cloud"
+  path "/"
+    br "/main"
+    co "/main"
