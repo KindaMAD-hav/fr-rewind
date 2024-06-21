@@ -23,6 +23,20 @@ public class PlayerTrail : MonoBehaviour
 
     private bool isDashing = false;
 
+    [SerializeField] private ParticleSystem playerDeathParticles = default;
+    public float CameraShakeTime;
+    public float CameraShakeIntensity;
+
+    private CameraShake cameraShake;
+    private LevelGenerator levelGenerator;
+
+    void Start()
+    {
+        cameraShake = Camera.main.GetComponent<CameraShake>();
+
+        levelGenerator = FindObjectOfType<LevelGenerator>();
+    }
+
     void Update()
     {
         spacePressed = Keyboard.current.spaceKey.isPressed;
@@ -139,6 +153,19 @@ public class PlayerTrail : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            if (isDashing)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        if (collision.gameObject.CompareTag("EndPoint")) 
+        { 
+            levelGenerator.NextLevel();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -155,12 +182,28 @@ public class PlayerTrail : MonoBehaviour
             }
         }
 
-        /*if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Wall"))
         {
             if (isDashing)
             {
                 Destroy(gameObject);
             }
-        }*/
+        }
+    }
+
+
+    private void OnDestroy()
+    {
+        if (CameraShakeManager.Instance != null)
+        {
+            CameraShakeManager.Instance.ShakeCamera(CameraShakeTime, CameraShakeIntensity);
+        }
+
+        Instantiate(playerDeathParticles, transform.position, Quaternion.identity);
+
+        if (playerClone != null)
+        {
+            Destroy(playerClone);
+        }
     }
 }

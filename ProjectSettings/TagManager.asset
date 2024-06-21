@@ -8,6 +8,7 @@ TagManager:
   - SpawnPoint
   - Rooms
   - Wall
+  - EndPoint
   layers:
   - Default
   - TransparentFX

@@ -208,7 +208,7 @@ public class LevelGenerator : MonoBehaviour
         {
             for (int y = 1; y < height - 1; y++)
             {
-                if (map[x, y] == 0 && Vector2.Distance(playerStartPosition, new Vector2(x, y)) > 5f)
+                if (map[x, y] == 0 && Vector2.Distance(playerStartPosition, new Vector2(x, y)) > 15f)
                 {
                     availablePositions.Add(new Vector2(x, y));
                 }
@@ -227,5 +227,11 @@ public class LevelGenerator : MonoBehaviour
             GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
             Instantiate(enemyPrefab, enemyPosition, Quaternion.identity, transform);
         }
+    }
+
+    public void NextLevel()
+    {
+        currentLevel++;
+        GenerateLevel();
     }
 }

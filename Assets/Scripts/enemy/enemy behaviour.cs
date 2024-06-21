@@ -19,6 +19,16 @@ public class Enemybehaviour : MonoBehaviour
 
     private Vector2 targetDirection;
 
+    public float CameraShakeTime;
+    public float CameraShakeIntensity;
+
+    private CameraShake cameraShake;
+
+    void Start()
+    {
+        cameraShake = Camera.main.GetComponent<CameraShake>();
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -69,5 +79,11 @@ public class Enemybehaviour : MonoBehaviour
     private void OnDestroy()
     {
         Instantiate(enemyDeathParticles, transform.position, Quaternion.identity);
+
+        if (CameraShakeManager.Instance != null)
+        {
+            CameraShakeManager.Instance.ShakeCamera(CameraShakeTime, CameraShakeIntensity);
+        }
     }
+
 }

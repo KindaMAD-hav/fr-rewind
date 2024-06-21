@@ -348,6 +348,9 @@ MonoBehaviour:
   dotLifetime: 2
   slowTime: 0.1
   dashSpeed: 20
+  playerDeathParticles: {fileID: 2503024188289942641, guid: 30f71f6fa5384924ca1b26e9ee1bd503, type: 3}
+  CameraShakeTime: 0.5
+  CameraShakeIntensity: 0.3
 --- !u!114 &4865793810305123064
 MonoBehaviour:
   m_ObjectHideFlags: 0

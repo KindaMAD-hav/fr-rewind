@@ -175,6 +175,8 @@ MonoBehaviour:
   speed: 7
   enemyDeathParticles: {fileID: 5890044207044193962, guid: 95e475cb6c505e140ba7ae0d1e9b6b12, type: 3}
   rotationSpeed: 1000
+  CameraShakeTime: 0.3
+  CameraShakeIntensity: 0.1
 --- !u!58 &6113141870728177180
 CircleCollider2D:
   m_ObjectHideFlags: 0
