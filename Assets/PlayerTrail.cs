@@ -30,11 +30,21 @@ public class PlayerTrail : MonoBehaviour
     private CameraShake cameraShake;
     private LevelGenerator levelGenerator;
 
+    private HealthBar healthBar;
+    public float healthDecreaseRate = 1f;
+    public float enemyKillHealthValue = 1f;
+
+
     void Start()
-    {
+    {       
+
         cameraShake = Camera.main.GetComponent<CameraShake>();
 
         levelGenerator = FindObjectOfType<LevelGenerator>();
+
+        healthBar = FindObjectOfType<HealthBar>();
+
+        StartCoroutine(DecreaseHealthOverTime());
     }
 
     void Update()
@@ -147,6 +157,8 @@ public class PlayerTrail : MonoBehaviour
             if (isDashing)
             {
                 Destroy(collision.gameObject);
+
+                healthBar.UpdateHealth(enemyKillHealthValue);
             }
             else
             {
@@ -174,7 +186,11 @@ public class PlayerTrail : MonoBehaviour
         {
             if (isDashing)
             {
+
+                healthBar.UpdateHealth(enemyKillHealthValue);
+
                 Destroy(collision.gameObject);
+
             }
             else
             {
@@ -204,6 +220,17 @@ public class PlayerTrail : MonoBehaviour
         if (playerClone != null)
         {
             Destroy(playerClone);
+        }
+
+        healthBar.UpdateHealth(-100);
+    }
+
+    IEnumerator DecreaseHealthOverTime()
+    {
+        while(true)
+        {
+         healthBar.UpdateHealth(-healthDecreaseRate);
+         yield return new WaitForSeconds(1f);
         }
     }
 }
