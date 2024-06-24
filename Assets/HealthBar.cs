@@ -14,6 +14,8 @@ public class HealthBar : MonoBehaviour
     public float fillSpeed;
     public Gradient healthBarGradient;
 
+    private PlayerTrail playerTrail;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -23,6 +25,13 @@ public class HealthBar : MonoBehaviour
     {
         currentHealth += amount;
         UpdateHealthBar();
+        if(currentHealth <= 0) 
+        {
+            if(playerTrail != null)
+            {
+                playerTrail.DestroyPlayer();
+            }
+        }
     }
 
     public void UpdateHealthBar()

@@ -61,6 +61,8 @@ public class PlayerTrail : MonoBehaviour
             LeaveDot();
             timeSinceLastDot = 0f;
         }
+
+ 
     }
 
     void LeaveDot()
@@ -232,5 +234,11 @@ public class PlayerTrail : MonoBehaviour
          healthBar.UpdateHealth(-healthDecreaseRate);
          yield return new WaitForSeconds(1f);
         }
+    }
+
+
+    public void DestroyPlayer()
+    {
+        Destroy(gameObject);
     }
 }

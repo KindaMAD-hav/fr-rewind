@@ -314,6 +314,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &616227632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7653554617899875473, guid: 22f3b2d4a543ca842a655d51919f7b3c, type: 3}
+  m_PrefabInstance: {fileID: 6628478225330466738}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &616227634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616227632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00370cec1a12d214ebf332c7d1e282d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handle: {fileID: 1073829952}
 --- !u!1001 &780251427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -400,6 +418,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efae9d64bb8c3bc4799241f0a1ed0e15, type: 3}
+--- !u!224 &1073829952 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5678352370450784352, guid: 22f3b2d4a543ca842a655d51919f7b3c, type: 3}
+  m_PrefabInstance: {fileID: 6628478225330466738}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1085755467 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6541818831275235901, guid: 22f3b2d4a543ca842a655d51919f7b3c, type: 3}
@@ -878,6 +901,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2976781847836260444, guid: 22f3b2d4a543ca842a655d51919f7b3c, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3325604541808901351, guid: 22f3b2d4a543ca842a655d51919f7b3c, type: 3}
+      propertyPath: m_MovementRange
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3793385455923239399, guid: 22f3b2d4a543ca842a655d51919f7b3c, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -976,6 +1007,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3793385455923239399, guid: 22f3b2d4a543ca842a655d51919f7b3c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1739840092}
+    - targetCorrespondingSourceObject: {fileID: 7653554617899875473, guid: 22f3b2d4a543ca842a655d51919f7b3c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 616227634}
   m_SourcePrefab: {fileID: 100100000, guid: 22f3b2d4a543ca842a655d51919f7b3c, type: 3}
 --- !u!1001 &7634830458768440377
 PrefabInstance:
